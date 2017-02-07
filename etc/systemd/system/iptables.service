@@ -5,9 +5,9 @@ After=systemd-sysctl.service
 Before=sysinit.target
 [Service]
 Type=oneshot
-ExecStart=/sbin/iptables-restore /etc/iptables/iptables.rules
-ExecReload=/sbin/iptables-restore /etc/iptables/iptables.rules
-ExecStop=/etc/iptables/flush-iptables.sh
+ExecStart=/etc/iptables/iptables.fw start
+ExecReload=/etc/iptables/iptables.fw reload
+ExecStop=/etc/iptables/iptables.fw stop
 RemainAfterExit=yes
 [Install]
 WantedBy=multi-user.target
